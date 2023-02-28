@@ -2,7 +2,10 @@
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    boxShadow: {
+      'md': ".25rem .25rem"
+    },
     extend: {},
   },
-  plugins: [],
+  plugins: [ require('@tailwindcss/forms')],
 };
