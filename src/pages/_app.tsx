@@ -3,7 +3,7 @@ import { type Session } from "next-auth";
 import { SessionProvider, useSession } from "next-auth/react";
 import { useEffect } from "react";
 import { signIn } from "next-auth/react";
-import MainLayout from "~/components/layouts/mainLayout"
+import { MainLayout } from "~/components/layouts/mainLayout"
 
 import type { AppProps } from "next/app";
 import type { ReactElement, ReactNode } from "react";
@@ -31,7 +31,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }: AppPropsWithLayout) => {
   const getLayout = Component.getLayout || ((page) => <MainLayout>{page}</MainLayout>);
   const layout = getLayout(<Component {...pageProps} />) as JSX.Element;
-  return getLayout(
+  return (
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     <SessionProvider session={session}>
         {Component.requireAuth ? <div datatype="pro">{layout}</div> : layout}

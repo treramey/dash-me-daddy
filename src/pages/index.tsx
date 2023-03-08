@@ -3,17 +3,12 @@ import { signIn, signOut, useSession } from "next-auth/react";
 
 import { api } from "~/utils/api";
 
-import type { ReactElement } from "react";
 import type { NextPageWithLayout } from "./_app";
 
 const Home: NextPageWithLayout = () => {
   const hello = api.example.hello.useQuery({ text: "from tRPC" });
 
   return <div>{hello.data ? hello.data.greeting : "Loading tRPC query..."}</div>;
-};
-
-Home.getLayout = function getLayout(page: ReactElement) {
-  return <div>{page}</div>;
 };
 
 export default Home;
