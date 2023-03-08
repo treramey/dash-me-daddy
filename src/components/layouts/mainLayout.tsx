@@ -43,9 +43,12 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function MainLayout({children}) {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+interface Props {
+  children: React.ReactNode;
+}
 
+export const MainLayout = ({children}: Props) => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
     <>
       <div>

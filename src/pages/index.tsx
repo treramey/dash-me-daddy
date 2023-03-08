@@ -4,7 +4,6 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import { api } from "~/utils/api";
 
 import type { ReactElement } from "react";
-import MainLayout from "~/layouts/mainLayout";
 import type { NextPageWithLayout } from "./_app";
 
 const Home: NextPageWithLayout = () => {
@@ -14,7 +13,7 @@ const Home: NextPageWithLayout = () => {
 };
 
 Home.getLayout = function getLayout(page: ReactElement) {
-  return <MainLayout>{page}</MainLayout>;
+  return <div>{page}</div>;
 };
 
 export default Home;

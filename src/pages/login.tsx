@@ -88,9 +88,7 @@ export default function Example() {
                     <div className="w-full border-t border-stone-900" />
                   </div>
                   <div className="relative flex justify-center text-sm">
-                    <span className="bg-gray-100 px-2 text-stone-900">
-                      or
-                    </span>
+                    <span className="bg-gray-100 px-2 text-stone-900">or</span>
                   </div>
                 </div>
               </div>
