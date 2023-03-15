@@ -1,5 +1,5 @@
-import { Fragment, useState } from "react";
 import { Dialog, Menu, Transition } from "@headlessui/react";
+import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import {
   Bars3BottomLeftIcon,
   BellIcon,
@@ -11,18 +11,18 @@ import {
   UsersIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
+import { Fragment, useState } from "react";
 
 interface navigationProps {
-    name: string;
-    href: string;
-    icon: any;
-    current: boolean;
+  name: string;
+  href: string;
+  icon: any;
+  current: boolean;
 }
 
 interface userNavigationProps {
-    name: string;
-    href: string;
+  name: string;
+  href: string;
 }
 
 const navigation: navigationProps[] = [
@@ -39,7 +39,7 @@ const userNavigation = [
   { name: "Sign out", href: "#" },
 ];
 
-function classNames(...classes) {
+function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
@@ -47,7 +47,7 @@ interface Props {
   children: React.ReactNode;
 }
 
-export const MainLayout = ({children}: Props) => {
+export const MainLayout = ({ children }: Props) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
     <>
@@ -188,7 +188,7 @@ export const MainLayout = ({children}: Props) => {
           </div>
         </div>
         <div className="flex flex-col lg:pl-64">
-          <div className="sticky top-0 z-10 flex h-16 flex-shrink-0 bg-white shadow">
+          <div className="shadow sticky top-0 z-10 flex h-16 flex-shrink-0 bg-white">
             <button
               type="button"
               className="border-r border-gray-200 px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 lg:hidden"
@@ -250,7 +250,7 @@ export const MainLayout = ({children}: Props) => {
                     leaveFrom="transform opacity-100 scale-100"
                     leaveTo="transform opacity-0 scale-95"
                   >
-                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <Menu.Items className="shadow-lg absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 ring-1 ring-black ring-opacity-5 focus:outline-none">
                       {userNavigation.map((item) => (
                         <Menu.Item key={item.name}>
                           {({ active }) => (
@@ -289,4 +289,4 @@ export const MainLayout = ({children}: Props) => {
       </div>
     </>
   );
-}
+};
