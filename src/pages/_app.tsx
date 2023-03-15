@@ -51,7 +51,7 @@ const Auth: any = ({ children }: AuthProps) => {
 
   useEffect(() => {
     if (loading) return; // Do nothing while loading
-    if (!isUser) Router.push("/login").catch((e) => console.log(e)); // If not authenticated
+    if (!isUser) Router.push("/").catch((e) => console.log(e)); // If not authenticated
   }, [isUser, loading]);
 
   if (isUser) {
